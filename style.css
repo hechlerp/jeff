@@ -1,0 +1,90 @@
+body {
+  background: #000;
+  font-family: 'Amaranth', sans-serif;
+  font-size: 20px;
+}
+
+li {
+  list-style: none;
+}
+
+h1 {
+  color: #fff;
+  font-size: 48px;
+  text-align: center;
+  width: 100%;
+}
+
+p {
+  color: #fff;
+  font-size: 36px;
+  text-align: center;
+  width: 100%;
+}
+
+.adventure-list, .task-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.adventure {
+  background: #fff;
+  border-top-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 32px;
+  padding: 24px;
+  position: relative;
+  width: 90%;
+}
+
+.checkbox {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-60px);
+}
+
+.adventure > .checkbox, .task > .checkbox {
+  height: 120px;
+  width: 120px;
+}
+
+.adventure > .name {
+  border-bottom: 6px solid #000;
+  font-size: 50px;
+  font-style: italic;
+  width: 76%;
+}
+
+.adventure > .description {
+  font-size: 36px;
+  margin-top: 6%;
+  width: 76%;
+}
+
+.task > .description {
+  font-size: 36px;
+  margin-top: 6%;
+  width: 64%;
+}
+
+.task {
+  background: #fff;
+  border-top-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  display: flex;
+  flex-direction: row;
+  font-size: 36px;
+  margin-top: 32px;
+  padding: 24px;
+  position: relative;
+  width: 90%;
+}
+
+.task > .points {
+  position: absolute;
+  right: 150px;
+}
