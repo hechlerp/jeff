@@ -82,6 +82,21 @@ window.onload = function () {
         }, {
             description: "something round with corners",
             points: 20,
+        }, {
+            description: "someone following the Jedi code",
+            points: 10,
+        }, {
+            description: "I don't like the way that squirrel is looking at me",
+            points: 50,
+        }, {
+            description: "a body of water bigger than a cereal bowl",
+            points: 10,
+        }, {
+            description: "something that looks like a castle that isn't a castle",
+            points: 10,
+        }, {
+            description: "RETRIEVE a reflection",
+            points: 10,
         },
     ];
 
@@ -126,6 +141,15 @@ window.onload = function () {
         }, {
             name: "Zeitgeist",
             description: "RETRIEVE a sign of the times.",
+        }, {
+          name: "The Tragedy",
+          description: "Photo of you and your teammate in unbearable emotional pain. Extra points for another picture showing the cause of the tragedy.",
+        }, {
+          name: "Don't Laugh At Me, I Was Once Like You",
+          description: "The most broken thing you can find.",
+        }, {
+          name: "Amish Sinner",
+          description: "Points to whoever shows up with the most unattached buttons.",
         }
     ];
 
@@ -145,9 +169,9 @@ window.onload = function () {
     // </ul>
     
     var checkBoxHandler = function (el) {
+        nameDescArray = el.id.split(';')
+        var isAdventure = isNaN(nameDescArray[0]);
         if (el.checked) {
-            nameDescArray = el.id.split(';')
-            var isAdventure = isNaN(nameDescArray[0]);
             var checkedList;
             if (isAdventure) {
                 checkedList = JSON.parse(localStorage.getItem('adventureList'))
@@ -170,6 +194,30 @@ window.onload = function () {
                     description: nameDescArray[1],
                 })
                 localStorage.setItem('taskList', JSON.stringify(checkedList))
+            }
+        }
+        else {
+            if (isAdventure) {
+                checkedList = JSON.parse(localStorage.getItem('adventureList'))
+                idx = checkedList.findIndex(function (adventure) {
+                    return (adventure.description === nameDescArray[1])
+                })
+                if (idx > -1) {
+                    checkedList.splice(idx, 1)
+                    localStorage.setItem('adventureList', JSON.stringify(checkedList))
+                }
+            }
+            else {
+                checkedList = JSON.parse(localStorage.getItem('taskList'))
+                idx = checkedList.findIndex(function (task) {
+                    return (task.description === nameDescArray[1])
+                })
+                console.log(idx)
+                if (idx > -1) {
+                    console.log('hit')
+                    checkedList.splice(idx, 1)
+                    localStorage.setItem('taskList', JSON.stringify(checkedList))
+                }
             }
         }
     }
